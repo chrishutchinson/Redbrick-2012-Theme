@@ -167,5 +167,18 @@ function ticker_username() {
 	$options = get_option('plugin_options');  
 	echo "<input name='plugin_options[ticker_username]' type='text' value='{$options['ticker_username']}' />";
 }
-
+function get_deep_child_category( $categories )
+{
+$maxId = 0;
+$maxKey = 0;
+foreach ( $categories as $key => $value )
+{
+if ( $value->parent > $maxId )
+{
+$maxId = $value->term_id;
+$maxKey = $key;
+}
+}
+return $categories[$maxKey];
+}
 ?>
