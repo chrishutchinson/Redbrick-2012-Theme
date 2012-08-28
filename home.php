@@ -30,13 +30,9 @@ if($now < $lead_end)
 	$lead_image = wp_get_attachment_image_src( get_post_thumbnail_id( $lead_post->ID ), 'single-post-thumbnail' );
 	$lead_featured = $lead_image[0]; // Featured image URL //
 	$lead_title = $lead_post->post_title;
-	$lead_excerpt = $lead_post->post_excerpt;
-	if($lead_excerpt == "")
-	{
-		//No excerpt set, trim post content.
-		$lead_content = $lead_post->post_content;
-		$lead_excerpt = substr($lead_content, 0, 100);
-	}
+	
+	
+	$show = 100;
 	
 	$lead_url = get_permalink($lead_post->ID);
 	
@@ -45,7 +41,7 @@ if($now < $lead_end)
 	$siblings = $lead_custom['siblings'];
 	if($siblings == "")
 	{
-		$no_sublings = "1";
+		$no_siblings = "1";
 	}
 	else
 	{
@@ -71,6 +67,27 @@ if($now < $lead_end)
 		$cousins = str_replace(" ", "", $cousins);
 		$cousins = explode(",", $cousins);
 	}
+	
+	if($no_siblings == "1")
+	{
+		//no siblings, add 100
+		$show = $show+100;
+	}
+	
+	if($no_cousins == "1")
+	{
+		//no cousins, add 100
+		$show = $show+100;
+	}
+	
+	$lead_excerpt = $lead_post->post_excerpt;
+	
+	if($lead_excerpt == "")
+	{
+		//No excerpt set, trim post content.
+		$lead_content = $lead_post->post_content;
+		$lead_excerpt = substr($lead_content, 0, $show);
+	}
 	?>
 	
 	<!-- LEAD STORY #1 -->
@@ -87,10 +104,10 @@ if($now < $lead_end)
 		<div class="text w-500">
 			
 			<h1><a href="<?php echo $lead_url ?>"><?php echo $lead_title ?></a></h1>
-			<p><?php echo $lead_excerpt ?></p>
+			<p><?php echo $lead_excerpt ?>...</p>
 			
 			<?php
-			if($no_sublings != "1")
+			if($no_siblings != "1")
 			{
 				foreach($siblings as $sibling_id)
 				{
