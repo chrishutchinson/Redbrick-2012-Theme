@@ -212,6 +212,7 @@ if($now < $lead_end)
 				$main_category_name = $category[0]->cat_name;
 				$main_category_id = $category[0]->cat_ID;
 				
+				
 				if($main_category_id == $more_category)
 				{
 					$main_category_name = $category[1]->cat_name;
@@ -229,7 +230,7 @@ if($now < $lead_end)
 				}
 				?>
 			
-				<h2><img src="<?php bloginfo('template_directory'); ?>/images/icons/<?php echo $cat_icon[0] ?>" style="width:15px; height:15px;" /> <a href="<?php echo $url ?>"><?php echo get_the_title() ?></a></h2>
+				<h2><!--<img src="<?php bloginfo('template_directory'); ?>/images/icons/<?php echo $cat_icon[0] ?>" style="width:15px; height:15px;" /> --><a href="<?php echo $url ?>"><?php echo get_the_title() ?></a></h2>
 				
 			<?php endwhile; ?>
 	
