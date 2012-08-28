@@ -67,7 +67,7 @@ About: This is an entirely custom theme build during the redesign in advance of 
 
 <!-- End Footer -->
 
-
+<?php if(is_front_page() ) { ?>
 <!-- Start Scripts -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
 <script>
@@ -233,7 +233,7 @@ $(function() {
 
 </script>
 
-<!-- End Scripts -->
+<!-- End Scripts --><? } ?>
 
 </body>
 </html>
