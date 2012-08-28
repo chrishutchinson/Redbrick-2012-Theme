@@ -164,7 +164,7 @@ if($now < $lead_end)
 			}
 			?>
 			
-			<div class="photos"></div>
+			<!--<div class="photos"></div>-->
 					
 		</div>
 	
