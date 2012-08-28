@@ -9,7 +9,7 @@ About: This is an entirely custom theme build during the redesign in advance of 
 */
 ?>
 
-<?php get_header() ?>
+<?php get_header(); echo "Testing"; ?>
 
 <?php 
 $options = get_option('plugin_options');
