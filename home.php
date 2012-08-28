@@ -210,7 +210,6 @@ if($now < $lead_end)
 				{
 				    $cat_icon = get_terms_meta($main_category_id, "icon");
 				}
-				
 				?>
 			
 				<h2><img src="<?php bloginfo('template_directory'); ?>/images/icons/<?php echo $cat_icon[0] ?>" style="width:15px; height:15px;" /> <a href="<?php echo $url ?>"><?php echo get_the_title() ?></a></h2>
@@ -357,7 +356,7 @@ else
 				{
 					foreach($second_siblings as $second_sibling_id)
 					{
-						$second_sibling_post = get_post( $ssecond_ibling_id );
+						$second_sibling_post = get_post( $second_sibling_id );
 						
 						$second_sibling_url = get_permalink($second_sibling_id);
 						
