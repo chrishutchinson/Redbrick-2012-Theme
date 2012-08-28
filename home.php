@@ -11,11 +11,6 @@ About: This is an entirely custom theme build during the redesign in advance of 
 
 <?php get_header(); ?>
 
-<?php
-$var = "github test";
-echo $var;
-?>
-
 <?php 
 $options = get_option('plugin_options');
 $lead_id = $options['lead_story_id'];

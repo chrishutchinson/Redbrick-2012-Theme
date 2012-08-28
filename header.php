@@ -6,7 +6,6 @@ Author(s): Chris Hutchinson and Josh Holder
 Date started: 09/08/2012, 23:45
 Last updated: 09/08/2012 23:45
 About: This is an entirely custom theme build during the redesign in advance of the academic year 2012/2013 for Redbrick, student media group at the University of Birmingham.
-This is the line I've added for testing GitHub. Woop.
 */
 ?>
 
