@@ -32,7 +32,7 @@ if($now < $lead_end)
 	$lead_title = $lead_post->post_title;
 	
 	
-	$show = 100;
+	$show = 200;
 	
 	$lead_url = get_permalink($lead_post->ID);
 	
