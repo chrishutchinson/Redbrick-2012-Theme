@@ -80,6 +80,33 @@ if($now < $lead_end)
 		$show = $show+100;
 	}
 	
+	$updated = $lead_custom['updated'];
+	$new = $lead_custom['new'];
+	$breaking = $lead_custom['breaking'];
+	$live = $lead_custom['live'];
+	
+	$buttons = "";
+	
+	if($updated[0] == "1")
+	{
+		$buttons = $buttons . '<span class="tag updated">Updated</span> ';
+	}
+	
+	if($live[0] == "1")
+	{
+		$buttons = $buttons . '<span class="tag live">Live</span> ';
+	}
+	
+	if($new[0] == "1")
+	{
+		$buttons = $buttons . '<span class="tag new">New</span> ';
+	}
+	
+	if($breaking[0] == "1")
+	{
+		$buttons = $buttons . '<span class="tag breaking">Breaking</span> ';
+	}
+	
 	$lead_excerpt = $lead_post->post_excerpt;
 	
 	if($lead_excerpt == "")
@@ -103,7 +130,7 @@ if($now < $lead_end)
 		
 		<div class="text w-500">
 			
-			<h1><a href="<?php echo $lead_url ?>"><?php echo $lead_title ?></a></h1>
+			<h1><?php echo $buttons ?> <a href="<?php echo $lead_url ?>"><?php echo $lead_title ?></a></h1>
 			<p><?php echo $lead_excerpt ?>...</p>
 			
 			<?php
@@ -212,7 +239,35 @@ if($now < $lead_end)
 				$main_category_name = $category[0]->cat_name;
 				$main_category_id = $category[0]->cat_ID;
 				
+				$custom = get_post_custom( $post->ID );
 				
+				$updated = $custom['updated'];
+				$new = $custom['new'];
+				$breaking = $custom['breaking'];
+				$live = $custom['live'];
+				
+				$buttons = "";
+				
+				if($updated[0] == "1")
+				{
+					$buttons = $buttons . '<span class="tag updated">Updated</span> ';
+				}
+				
+				if($live[0] == "1")
+				{
+					$buttons = $buttons . '<span class="tag live">Live</span> ';
+				}
+				
+				if($new[0] == "1")
+				{
+					$buttons = $buttons . '<span class="tag new">New</span> ';
+				}
+				
+				if($breaking[0] == "1")
+				{
+					$buttons = $buttons . '<span class="tag breaking">Breaking</span> ';
+				}
+
 				if($main_category_id == $more_category)
 				{
 					$main_category_name = $category[1]->cat_name;
@@ -230,7 +285,7 @@ if($now < $lead_end)
 				}
 				?>
 			
-				<h2><!--<img src="<?php bloginfo('template_directory'); ?>/images/icons/<?php echo $cat_icon[0] ?>" style="width:15px; height:15px;" /> --><a href="<?php echo $url ?>"><?php echo get_the_title() ?></a></h2>
+				<h2><!--<img src="<?php bloginfo('template_directory'); ?>/images/icons/<?php echo $cat_icon[0] ?>" style="width:15px; height:15px;" /> --><?php echo $buttons ?> <a href="<?php echo $url ?>"><?php echo get_the_title() ?></a></h2>
 				
 			<?php endwhile; ?>
 	
@@ -354,6 +409,35 @@ else
 			$second_lead_content = $second_lead_post->post_content;
 			$second_lead_excerpt = substr($second_lead_content, 0, $trim);
 		}
+		
+		$custom = get_post_custom( $second_lead_post->ID );
+		
+		$updated = $custom['updated'];
+		$new = $custom['new'];
+		$breaking = $custom['breaking'];
+		$live = $custom['live'];
+		
+		$buttons = "";
+		
+		if($updated[0] == "1")
+		{
+			$buttons = $buttons . '<span class="tag updated">Updated</span> ';
+		}
+		
+		if($live[0] == "1")
+		{
+			$buttons = $buttons . '<span class="tag live">Live</span> ';
+		}
+		
+		if($new[0] == "1")
+		{
+			$buttons = $buttons . '<span class="tag new">New</span> ';
+		}
+		
+		if($breaking[0] == "1")
+		{
+			$buttons = $buttons . '<span class="tag breaking">Breaking</span> ';
+		}
 		?>
 		<!-- LEAD STORY #2 -->
 		<div class="content w-600 lead left" id="lead-2">
@@ -366,7 +450,7 @@ else
 			
 			<div class="text w-300">
 				
-				<h1><a href="<?php echo $second_lead_url ?>"><?php echo $second_lead_title ?></a></h1>
+				<h1><?php echo $buttons ?> <a href="<?php echo $second_lead_url ?>"><?php echo $second_lead_title ?></a></h1>
 				<p><?php echo $second_lead_excerpt ?></p>
 				
 				<?php

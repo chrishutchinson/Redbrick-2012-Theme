@@ -707,30 +707,7 @@ a:hover{
 	margin-bottom:15px;
 }
 
-.text .live{
-	background-color: #e5b304;
-	color: #FFFFFF;
-	font-weight: bold;
-	float: left;
-	font-size:80%;
-	padding:3px;
-	padding-left:10px;
-	padding-right:10px;
-	margin-right:8px;
-}
 
-.text .live-wrt{
-	background-color: #e5b304;
-	color: #FFFFFF;
-	font-weight: bold;
-	float: right;
-	font-size:80%;
-	padding:3px;
-	padding-left:10px;
-	padding-right:10px;
-	margin-left:8px;
-	margin-top:-3px;
-}
 
 .text .comment{
 	background-image:url(images/comment.png);
@@ -754,6 +731,29 @@ a:hover{
 .text p.wrt{
 	font-weight: bold;
 	font-size:110%;
+}
+
+.tag{
+	color: #FFFFFF;
+	font-size:10px;
+	padding:5px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.live{
+	background-color: #e5b304;
+}
+
+.updated{
+	background-color:#576184;
+}
+
+.breaking{
+	background-color:#97569b;
+}
+
+.new{	background-color:#a92d39;
 }
 
 .twitter{
