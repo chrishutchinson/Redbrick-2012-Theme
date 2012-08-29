@@ -18,8 +18,15 @@
 	<?php else: ?>
 	<?php $featured = "" // Fallback image if there is none supplied // ?>
 	<?php endif; ?>
+	<?php
+	$excerpt = get_the_excerpt();
+	if(strlen($excerpt) > 60)
+	{
+		$excerpt = preg_replace('/\s+?(\S+)?$/', '', substr($excerpt, 0, 100)) . "...";
+	}
+	?>
 	<div class="scrollitems" style="background-image: url(<?php echo $featured ?>);">
-    	<span class="scrollitemtitle"><?php echo get_the_title() ?></span> <br><span class="scrollitemdescription"><?php echo get_the_excerpt() ?></span>   	
+    	<span class="scrollitemtitle"><?php echo get_the_title() ?></span> <br><span class="scrollitemdescription"><?php echo $excerpt; ?></span>   	
     </div> 
 	
 	<?php endwhile; ?>
