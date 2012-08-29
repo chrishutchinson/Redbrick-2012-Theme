@@ -535,7 +535,7 @@ else
 			
 			<h1>Worth<br />Reading<br /><span class="wrt-pink">Today</span><br /><br /></h1>
 			
-			<div class="live-wrt">Live ►</div><p class="wrt"><a href="#">London Fashion Week</a></p>
+			<p class="wrt"><span class="tag live">Live ►</span> <a href="#">London Fashion Week</a></p>
 			<p class="wrt"><a href="#">Summer 2012 Smartphone Buyer’s Guide</a></p>
 			<p class="wrt"><a href="#">Your complete Greek geek’s guide to the islands</a></p>
 				
