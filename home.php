@@ -221,7 +221,7 @@ if($now < $lead_end)
 	
 	</div>
 	
-	<div class="content no-shadow w-1000 no-margin b-top" style="z-index:998;">
+	<div class="content no-shadow w-1000 no-margin b-top more-top" style="z-index:998;">
 	
 		<div class="text w-1000" style="padding-bottom:0px !important;">
 			<h3>MORE TOP STORIES</h3>
@@ -229,7 +229,7 @@ if($now < $lead_end)
 		
 	</div>
 	
-	<div class="content no-shadow no-margin w-500 " style="z-index:98;">
+	<div class="content no-shadow no-margin w-500 more-top" style="z-index:98;">
 	
 		<div class="text w-500">
 			<?php
@@ -316,7 +316,7 @@ if($now < $lead_end)
 	
 	</div>
 	
-	<div class="content no-shadow no-margin w-500">
+	<div class="content no-shadow no-margin w-500 more-top">
 	
 		<div class="text w-500">
 		

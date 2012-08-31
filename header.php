@@ -14,6 +14,7 @@ About: This is an entirely custom theme build during the redesign in advance of 
 <title></title>
 <link href='http://fonts.googleapis.com/css?family=Tinos:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<link rel="stylesheet" type="text/css" media="(max-width: 1000px)" href="<?php echo get_bloginfo('template_directory'); ?>/ipad.css" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
