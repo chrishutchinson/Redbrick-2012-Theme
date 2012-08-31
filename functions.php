@@ -169,16 +169,20 @@ function ticker_username() {
 }
 function get_deep_child_category( $categories )
 {
-$maxId = 0;
-$maxKey = 0;
-foreach ( $categories as $key => $value )
-{
-if ( $value->parent > $maxId )
-{
-$maxId = $value->term_id;
-$maxKey = $key;
+    $maxId = 0;
+    $maxKey = 0;
+    foreach ( $categories as $key => $value )
+    {
+        if ( $value->parent > $maxId )
+        {
+            $maxId = $value->term_id;
+            $maxKey = $key;
+        }
+    }
+    return $categories[$maxKey];
 }
-}
-return $categories[$maxKey];
+function get_category_id($cat_name){
+	$term = get_term_by('name', $cat_name, 'category');
+	return $term->term_id;
 }
 ?>

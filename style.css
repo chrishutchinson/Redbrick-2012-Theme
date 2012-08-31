@@ -20,10 +20,7 @@ body{
 	font-family:"Helvetica Neue", sans-serif;
 	margin:0;
 	width:100%;
-	background:#d9dcd9;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f2e9', endColorstr='#ccd1d0'); /* for IE */
-	background: -webkit-gradient(linear, left top, right bottom, from(#f1f2e9), to(#ccd1d0)); /* for webkit browsers */
-	background: -moz-linear-gradient(left top,  #f1f2e9,  #ccd1d0); /* for firefox 3.6+ */ 	
+	background:#e9e9e9;
 }
 
 textarea, input {
@@ -124,7 +121,7 @@ a:hover{
 }
 
 .shadow{
-	box-shadow: 0px 4px 2px -2px #888888 !important;
+	  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Floats */
@@ -634,7 +631,7 @@ a:hover{
 
 .content, .content-750{
 	background-color:rgba(255,255,255,0.9);
-	box-shadow: 0px 4px 2px -2px #888888;
+	border-bottom: 1px solid #e0e0e0;
 	overflow: hidden;
 	font-size:90%;
 	margin-bottom:25px;
@@ -889,285 +886,166 @@ a.twitter:hover{
 /* category.php - Start Category CSS */
 
 @media only screen and (min-width: 1000px) {
-.categoryname {
-	width:1000px; 
-	margin: auto; 
-	margin-bottom: -10px; 
-	margin-top: 10px; 
-	font-size: 12px; 
-	font-weight: bold; 
-	text-shadow: 1px 1px #ffffff; 
-	text-transform:uppercase;
-}
-.containercontainer {
-	width: 1000px; margin:auto;
-}
-
 .container {
-	width:1000px;
-	margin:0 auto;
-	margin-top: 20px;
+width:1020px;
+margin:0 auto;
 }
-
-.postbox {
-	width: 320px;
-	background-color: #FFFFFF;
-	overflow: hidden;
-	margin-bottom: 20px;
-	box-shadow: 0px 4px 2px -2px #888888;
-	display: block;
-	border-radius:4px;
-}
-.left1 {
-	float:left;
-	margin-right: 20px;
-}
-.middle1 {
-	float:left;
-	margin-right: 20px;
-}
-.right1 {
-	float: left;
+.item {
+  width: 320px;
+  margin: 10px;
+  float: left;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e0e0e0;
 }
 .postthumbnail {
-	width:320px;
-	height:170px;
-	background-size: cover;
+width:320px;
+height:170px;
+background-size: cover;
+}
+.catnav {
+width: 1000px;
+margin: auto;
+background-color: #222222;
+margin-top:10px;
+}
+.featurearea {
+width:1000px;
+margin:auto;
+margin-top: 10px;
+}
+}
+@media only screen and (max-width: 1000px) and (min-width: 767px) {
+.container {
+width:680px;
+margin:0 auto;
+}
+.item {
+  width: 320px;
+  margin: 10px;
+  float: left;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e0e0e0;
+}
+.postthumbnail {
+width:320px;
+height:170px;
+background-size: cover;
+}
+.catnav {
+width: 660px;
+margin: auto;
+background-color: #222222;
+margin-top:10px;
+}
+.featurearea {
+display:none;
+}
+}
+@media only screen and (max-width: 766px) {
+.container {
+width:100%
+margin:0 auto;
+margin-top: 10px;
+}
+.item {
+  width: 100%;
+  margin: 5px;
+  float: left;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #e0e0e0;
+  margin-left: 0px;
+}
+.postthumbnail {
+width:100%;
+height:170px;
+background-size: cover;
+}
+.catnav {
+width: 100%;
+margin: auto;
+background-color: #222222;
+margin-top:10px;
+}
+.featurearea {
+display:none;
+}
 }
 .categorytext {
-	padding:15px;
-	font-size: 14px;
+padding:15px;
+font-size: 14px;
 }
-.categorytext h1, h2, h3, p{
-	margin: 0;
-}
-.categorytext h1{
-	font-size:170%;
-	color: #000000;
-	font-weight: bold;
-	margin-bottom:5px;
-	line-height: 1.18em;
-}
-.categorytext h3 {
-	font-size: 85%;
-	margin-top: 5px;
-}
-.categoryoptions {
-	width: 320px;
-	background-color: #FFFFFF;
-	overflow: hidden;
-	margin-bottom: 20px;
-	box-shadow: 0px 4px 2px -2px #888888;
-	float:right;
-	color: #8a8a8a;
-	font-size: 14px;
-}
-.editor {
-	margin-top: 8px;
-	margin-bottom: 8px;
-	color: #000000;
-	line-height: 20px;
-}
-}
-
-.optionscontainer {
-	color: #8a8a8a;
-	font-size: 14px;
-	padding: 10px;
-}
-
-.categorylist {
-	margin-top:5px;
-	line-height: 29px;
-	margin-bottom:5px;
-}
-
-.categorylist a, .categorylist a:link {
-	background-color: #e4e4e4;
-	padding-left: 6px;
-	padding-right: 6px;
-	font-size: 14px;
-	display: inline-block;
-	margin-bottom: 4px;
-	color: #000000;
-	text-shadow: 1px 1px #ffffff;
-}
-.categorylist a:hover {
-	padding-left: 6px;
-	padding-right: 6px;
-	font-size: 14px;
-	display: inline-block;
-	margin-bottom: 4px;
-	color: #ffffff;
-	text-shadow: none;
-}
-.categorylist br {
-	display:none;
-}
-
-.editor a, .editor a:link {
-	color: #00abec;
-	text-decoration: underline;
-}
-.editor a:hover {
-	color: #00abec;
-	text-decoration: underline;
-	background-color: #FFFFFF;
-}
-
-
-@media only screen and (min-width: 767px) and (max-width: 1000px) {
-.categoryname {
-	width:700px; 
-	margin: auto; 
-	margin-bottom: -10px; 
-	margin-top: 10px; 
-	font-size: 12px; 
-	font-weight: bold; 
-	text-shadow: 1px 1px #ffffff; 
-	text-transform:uppercase;
-}
-.containercontainer {
-	width: 700px;
-	margin: auto;
-	margin-top: 20px;
-}
-.container {
-	width:700px;
-	margin:0 auto;
-	margin-top: 20px;	
-}
-.postbox {
-	width: 100%;
-	background-color: #FFFFFF;
-	margin-bottom: 20px;
-	box-shadow: 0px 4px 2px -2px #888888;
-	border-radius:4px;
-}
-
-.postthumbnail {
-	width:100%;
-	height:300px;
-	background-size: cover;
-	border-top-left-radius:4px;
-	border-top-right-radius:4px;
-}
-.categorytext  {
-	padding:15px;
-}
-.categorytext h1, h2, h3, p{
-	margin: 0;
+.categorytext h2{
+font-size: 110%;
+font-weight: bold;
+margin-top:0px !important;
+margin-bottom:5px;
 }
 .categorytext h1{
-	font-size:170%;
-	color: #000000;
-	font-weight: bold;
-	margin-bottom:5px;
-	line-height: 1.18em;
+font-size:170%;
+color: #000000;
+font-weight: bold;
+margin-bottom:5px;
+line-height: 1.18em;
+margin-top: 5px;
 }
-.categorytext h3 {
-	font-size: 85%;
-	margin-top: 5px;
+.postthumbnailmini {
+width:68px;
+height:68px;
+background-size: cover;
+float:left; 
+margin-right: 13px;
 }
-.editor {
-	margin-top: 8px;
-	margin-bottom: 8px;
-	color: #000000;
-	line-height: 20px;
-	overflow: hidden;
-	float:left;
-	margin-right: 10px;
+.categorytextmini {
+font-size: 14px;
+height: 50px;
+margin-top: 7px;
 }
+.categorytextmini h2{
+font-size: 110%;
+font-weight: bold;
 }
-
-.categorytext h2.music{
-	font-size: 110%;
-	font-weight: bold;
-	color:#247CCE;
-	margin-top:0px !important;
-	margin-bottom:5px;
+.categorytextmini h1{
+font-size:170%;
+color: #000000;
+margin-top: 5px;
 }
-
-
-.music a:link,{
-	color:#247CCE;
-}
-
-.categorytext .music h2 a{
-color:#fff;
-}
-
-a.categorylist {
-	padding: 5px; 
-	background-color: blue;
-}
-
-
-
-@media only screen and (max-width: 767px) {
-.categoryname {
-	width:80%; 
-	margin-bottom: 10px; 
-	margin-top: 10px; 
-	margin-left: 10px;
-	font-size: 12px; 
-	font-weight: bold; 
-	text-shadow: 1px 1px #ffffff; 
-	text-transform:uppercase;
-}
-.containercontainer {
-	margin-top: 10px;
-}
-.container {
-	width:100%;
-	margin:0 auto;
-	margin-top: 20px;	
-}
-.postbox {
-	width: 100%;
-	background-color: #FFFFFF;
-	overflow: hidden;
-	margin-bottom: 20px;
-	box-shadow: 0px 4px 2px -2px #888888;
-}
-
-.postthumbnail {
-	width:100%;
-	height:180px;
-	background-size: cover;
-}
-.categorytext  {
-	padding:15px;
-}
-.categorytext h1, h2, h3, p{
-	margin: 0;
-}
-.categorytext h1{
-	font-size:170%;
-	color: #000000;
-	font-weight: bold;
-	margin-bottom:5px;
-	line-height: 1.18em;
-}
-.categorytext h3 {
-	font-size: 85%;
-	margin-top: 5px;
-}
-.editor {
+.postthumbnailmini2 {
 display:none;
 }
-.meettheeditors {
-display:none;
+.categorytextmini2 {
+font-size: 14px;
+margin-top: 10px;
+padding-left: 15px;
+padding-right: 10px;
 }
+.categorytextmini2 h2{
+font-size: 110%;
+font-weight: bold;
+}
+.categorytextmini2 h1{
+font-size:170%;
+color: #000000;
+margin-top: 5px;
+}
+.catnav ul{
+}
+.catnav li{
+display:inline;
+padding-top: 10px;
+color: #ffffff;
+}
+.catnav li a:link, .catnav li a:active, .catnav li a:visited{
+color: white;
+font-size: 14px;
+font-weight: bold;
+display: inline-block;
+height: 40px;
+padding-top: 10px;
+padding-left: 10px;
+padding-right: 10px;
 }
 
-.categorytext h2.music{
-	font-size: 110%;
-	font-weight: bold;
-	color:#247CCE;
-	margin-top:0px !important;
-	margin-bottom:5px;
-}
+
 /* category.php - End Category CSS */
 /* category.php - Slider CSS */
 
@@ -1194,7 +1072,7 @@ display:none;
 }
 
 .sliderholder {
-	width:1000px; margin:auto; margin-top:20px; position:relative; overflow:hidden; box-shadow: 0px 4px 2px -2px #888888; 	 
+	width:1000px; margin:auto; margin-top:20px; position:relative; overflow:hidden;  border-bottom: 1px solid #e0e0e0;	 
 }
 .scrollablecat {
   /* required settings */
@@ -1228,7 +1106,7 @@ display: none;
 display:none;
 }
 .sliderholder {
-	width:700px; margin:auto; margin-top:20px; position:relative; overflow:hidden; box-shadow: 0px 4px 2px -2px #888888;
+	width:700px; margin:auto; margin-top:20px; position:relative; overflow:hidden;  border-bottom: 1px solid #e0e0e0;
 }
 .scrollablecat {
   /* required settings */

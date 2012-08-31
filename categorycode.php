@@ -1,60 +1,16 @@
 <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 <script src="http://beta.redbrickpaper.co.uk/scrollable.js"></script>
-<script src="http://beta.redbrickpaper.co.uk/infinite.js"></script>
-<script>
-(function($) {
-	$.fn.equalHeights = function(minHeight, maxHeight) {
-		tallest = (minHeight) ? minHeight : 0;
-		this.each(function() {
-			if($(this).height() > tallest) {
-				tallest = $(this).height();
-			}
-		});
-		if((maxHeight) && tallest > maxHeight) tallest = maxHeight;
-		return this.each(function() {
-			$(this).height(tallest).css("overflow","auto");
-		});
-	}
-})(jQuery);
-</script>
-<script>
-$(document).ready(function() {
-	var width = $(window).width();
-if (width > 1000) {
-		$(".1").equalHeights(100,600); $(".2").equalHeights(100,600); $(".3").equalHeights(100,600);}   
-});
-</script>
-
+<script src="http://redbrickpaper.co.uk/new/wp-content/themes/redbrick/js/ajaxLoop.js"></script>
 <?php
 get_header();
 ?>
+
 <script>
 $(function() {
   // initialize scrollable
   $(".scrollablecat").scrollable({circular: true}).autoscroll({ autoplay: true });
 });
-
-var Counter = 1;
-window.onresize = function() {
-var width = $(window).width();
-var Number = 0;
-
-while(Number <= Counter)
-  {
-if (width > 1000) {
-		$("." + Number).equalHeights(100,600);
-		Number++;
-} else {
-		$("." + Number).height("auto");
-		Number++;
-}
-}
-		
-if(TO !== false)
-    clearTimeout(TO);
-    TO = setTimeout(resizeStuff, 200)
-}
 
 function resizeStuff() {
 var api2 = $(".scrollablecat").data("scrollable");
@@ -86,136 +42,59 @@ var TO = false;
 </div>
 <!-- End Slider -->
 <style>
-.categorylist a:hover {
-	background-color:<? echo $sectioncolor; ?>;
-	}
+.item h2 a:visited, .item h2 a:link, .item h2 a:active {
+	color: <? echo $sectioncolor; ?>
+}
+.current-cat a:link, .current-cat a:active, .current-cat a:visited{
+	background-color: <? echo $sectioncolor; ?>
+}
+.catnav li a:hover {
+	background-color: <? echo $sectioncolor; ?>
+}
 </style>
-<div class="categoryname"><?php $cat_id=$_GET['cat']; $category = get_cat_name( $cat_id ); echo $category; ?></div><div class="containercontainer"><? if(empty($_GET["page"]) or $_GET["page"] == "1") { ?><div class="categoryoptions postbox 1"><div style="width: 100%; background-color: <?php echo $sectioncolor; ?>; padding: 5px; font-size: 14px; color: #FFFFFF; 	border-top-left-radius:4px; border-top-right-radius:4px; background-image: url(<?php bloginfo('template_directory'); ?>/images/optionsr.png); background-size: 32px 29px; background-position: left; background-repeat: no-repeat; padding-left: 38px;"><?php echo $twittername; ?></div><div class="optionscontainer">Categories:<div class="categorylist"><a href="<?php
-echo site_url();
-?>/?cat=<? echo $categoryID; ?>">Show All</a><?php
-wp_list_categories('orderby=id&show_count=0&use_desc_for_title=0&child_of='.$categoryID.'&style=none&exclude='.$slidercategoryID);
-?></div><div class="meettheeditors">Meet The Editors:</div>
-<div class="editor"><img src="<?php echo $editor1image; ?>" style="width: 40px; height: 40px; float:left; margin-right: 5px;"><?php echo $editor1name; ?><br><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bird.png"> <a href="https://twitter.com/<?php echo $editor1twitter; ?>"><?php echo $editor1twitter; ?></a>
-</div>
-<div class="editor"><img src="<?php echo $editor2image; ?>" style="width: 40px; height: 40px; float:left; margin-right: 5px;"><?php echo $editor2name; ?><br><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bird.png"> <a href="https://twitter.com/<?php echo $editor2twitter; ?>"><?php echo $editor2twitter; ?></a>
-</div>
-<div class="editor" style="float:none;"><img src="<?php echo $editor3image; ?>" style="width: 40px; height: 40px; float:left; margin-right: 5px;"><?php echo $editor3name; ?><br><img src="<?php bloginfo('template_directory'); ?>/images/twitter-bird.png"> <a href="https://twitter.com/<?php echo $editor3twitter; ?>"><?php echo $editor3twitter; ?></a>
-</div>
-<div class="meettheeditors">Meeting Time: <? echo $meetingtime; ?>
-	
-</div> <? } ?>
-</div></div><div class="container">
-<?php
-
-if(empty($_GET["page"])) {
-} else {
-	$page = $_GET["page"];
-}
-	
-if ($page > 1) {
-	$offset   = 8 + (($page - 2) * 9);
-	$numposts = 9;
-} else {
-	$numposts = 8;
-}
+<div class="catnav"><li <? if (get_cat_id( single_cat_title("",false) ) == $categoryID) { ?>class="current-cat" <? } ?>><a href="<?php echo get_category_link($categoryID); ?>"><? echo $categoryname; ?></a></li><?php
+wp_list_categories('title_li=&orderby=id&show_count=0&use_desc_for_title=0&child_of='.$categoryID.'&exclude='.$slidercategoryID.$navcatexclusions);
+?></div>
+<div class="featurearea"><?php include(TEMPLATEPATH . '/featureareas/'.$categoryname.'.php'); ?></div>
+<div class="container">
+<script> var category = "<?= get_query_var('cat'); ?>";</script>
+<? 
 $categoryPosts = new WP_Query();
-$categoryPosts->query('offset=' . $offset . '&showposts=' . $numposts . '&cat=' . get_query_var('cat'));
-$incid       = 1;
-$fouronwards = 1;
-if (isset($oddcounter)) { echo "HEY";
-} else { $oddcounter  = 1; }
-while ($categoryPosts->have_posts()):
-	$categoryPosts->the_post();
-	$image_url = wp_get_attachment_url(get_post_thumbnail_id($id));
-	
-	if ($incid == 3) {
-		if ($page < 2) {
-			if ($fouronwards == 1) {
+$categoryPosts->query('showposts=6&cat='.get_query_var('cat'));
 
-/* Script here */
-		
-				$incid       = 1;
-				$fouronwards = 2;
-				$oddcounter++;
-				
-			}
-		}
-	}
-?> 
-<div class="postbox <?php
-	if ($incid == 1) {
-		echo "left1 ";
-	} else if ($incid == 2) {
-		echo "middle1 ";
-	} else if ($incid == 3) {
-		echo "right1 ";
-	}
-	echo $oddcounter+(($page-1)*3);
-?>"><div class="postthumbnail" style="background-image: url(<?
-	echo $image_url;
-?>);"></div><div class="categorytext"><h2 class="music"><?php $categories = get_the_category();
+while ($categoryPosts->have_posts()): //determines the child category for the post
+$categoryPosts->the_post();
+$image_url = wp_get_attachment_url(get_post_thumbnail_id($id));
+$categories = get_the_category();
 if ( $categories ) :
-    $deepChild = get_deep_child_category( $categories );
-    ?>
-        <a style="color:<?php echo $sectioncolor; ?>;" href="<?php echo get_category_link( $deepChild->term_id ); ?>" title="View All"><?php if ($deepChild->name == "Slider (".$categoryname.")") { echo $categoryname; } else { echo $deepChild->name; }?></a>
-    <?php 
-endif; ?></h2><a href="<?php echo get_permalink( $id ); ?>"><h1><?php
-	the_title();
-?></h1></a><?
-	the_excerpt();
-?><h3><?php
-	the_time('F jS, Y');
-?> | <?php
-	_e('Written by', 'WpAdvNewspaper');
-?> <?php
-	if (function_exists('coauthors_posts_links')) {
-		coauthors();
-	} else {
-		the_author_posts_link(); 
-	}
-?></h3></div></div>
-				
-<?php
-	$incid++;
-	if ($incid > 3) {
-	?> <script>Counter++;</script> <?
-		if ($oddcounter == 3) {
-?>
-		<div class="navigation"><a id="next" href="<?php
-			echo site_url();
-			$goto = $page + 1;
-?>/?cat=<? echo $_GET["cat"]; ?>&page=<?
-			echo $goto;
-?>">Next Page</a></div>
-	<?
-		}
-		$incid = 1;
-		$oddcounter++;
-	}
-endwhile;
-?></div></div>
-<script type="text/javascript">
-$('.container').infinitescroll({
- 
-  navSelector  : "a#next",            
-                 // selector for the paged navigation (it will be hidden)
- 
-  nextSelector : "a#next",    
-                 // selector for the NEXT link (to page 2)
- 
-  itemSelector : ".container",          
-                 // selector for all items you'll retrieve
-  },function(arrayOfNewElems){
-var width = $(window).width();  
-if (width > 1000) {
-var AnotherCount = 1;
-while(AnotherCount <= 3) {
-$("." + Counter).equalHeights(100,600);
-Counter++;
-AnotherCount++;
-}
-}
-}); </script>
-  <?
-  get_footer()
+$deepChild = get_deep_child_category( $categories );
+ if ($deepChild->name == "Slider (".$categoryname.")") { $categoryecho = $categoryname; } else { $categoryecho = $deepChild->name; }?></a>
+ <?php $category_ID = get_category_id($categoryecho); endif; if (function_exists('get_terms_meta'))
+{
+$new_value = get_terms_meta($category_ID, 'categorypagesize', true);
+}?>
+
+<div class="item">
+
+<!-- Displays the post in either mini, full or half form, through a series of if statements -->
+<?php if ($new_value == "mini") { 
+if (strlen(get_the_title()) < 18) { ?> 
+<div class="postthumbnailmini" style="background-image: url(<? echo $image_url; ?>);"></div><div class="categorytextmini"><h2><a class="categoryname" href="<?php echo get_category_link($category_ID); ?>"><? echo substr($categoryecho, 0, 29); ?></a></h2><h1><a href="<?php echo get_permalink(); ?>"><? the_title(); ?></a></h1></div> <? } else { ?> <div class="postthumbnailmini2" style="background-image: url(<? echo $image_url; ?>);"></div><div class="categorytextmini2"><h2><a class="categoryname" href="<?php echo get_category_link($category_ID); ?>"><? echo $categoryecho; ?></a></h2><h1><a href="<?php echo get_permalink(); ?>"><? the_title(); ?></a></h1></div> <? }} elseif ($new_value == "half") { ?> <div class="postthumbnail" style="background-image: url(<? echo $image_url; ?>);"></div><div class="categorytext"><h2><a class="categoryname" href="<?php echo get_category_link($category_ID); ?>"><? echo $categoryecho; ?></a></h2><h1><a href="<?php echo get_permalink(); ?>"><? the_title(); ?></a></h1></div> <? } else { ?>
+<div class="postthumbnail" style="background-image: url(<? echo $image_url; ?>);"></div><div class="categorytext"><h2><a class="categoryecho" href="<?php echo get_category_link($category_ID); ?>"><? echo $categoryecho; ?></a></h2><h1><a href="<?php echo get_permalink(); ?>"><? the_title(); ?></a></h1><? the_excerpt(); ?></div> <? } ?>
+
+
+</div> <? endwhile; ?>
+</div>
+<script src="http://masonry.desandro.com/jquery.masonry.min.js"></script>
+<script>
+$(function(){
+  $('.container').masonry({
+    // options
+    itemSelector : '.item',
+    columnWidth : 340
+  });
+});
+</script>
+<?
+get_footer()
 ?>
